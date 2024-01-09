@@ -1,0 +1,569 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+}
+
+h4 {
+  font-size: 20px;
+  color: #222;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p {
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+button.normal{
+  font-size:14px;
+  font-weight: 600;
+  padding:15px 30px;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+body {
+  width: 100%;
+}
+
+/* Header Start */
+
+#header{
+  /* make into a row*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 80px;
+    background: rgb(0, 0, 0); /* header color*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);  /*x, y, radius*/
+    z-index: 999;
+
+    position: sticky; /*header becomes sticky, does not move*/
+    top: 0;
+    bottom: 0;
+
+}
+
+#navbar{
+    /* make into a row*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#navbar li{
+    /*remove bullet points from header*/
+    list-style: none;
+    padding: 0 20px; /*spacing between each href*/
+
+    position: relative; /* postion relative in parent element, li is parent of li a.active::after */
+}
+
+#navbar li a{
+  /* remove underline*/ 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight:600;
+  color:white; /* font color */
+  transition: 0.5s ease; /* hover color transition time */
+} 
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: hotpink; /* hover color */
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after/*adds hover color when you hover over another tab*/{ 
+  /* active stationary hover on current page*/
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: hotpink;
+  position: absolute;  /* absolute in child element*/
+  bottom: -4px;
+  left: 20px;
+
+}
+
+#header .mobile i{ /*dont display hamburger menu indent on large devices*/
+  display: none;
+  align-items: center;
+}
+#header .mobile a{ /*dont display the other shopping cart on larger devices*/
+  display: none;
+  align-items: center;
+}
+#close{ /*dont display x on big screen*/
+  display: none;
+}
+
+
+/* Home Page */
+#hero{
+  background-image: url("img/blackcloud.webp"); /*background image*/
+  height: 90vh;
+  width: 100%;
+
+  /*background cover and center*/
+  background-size: cover;
+  background-position: top 25% right 0;
+
+  padding: 0 80px; /* top and bottom , left and right*/
+
+  display: flex; /*default is in row*/
+  flex-direction: column; /*change flex direction to column*/
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#hero p{
+  color: black;
+}
+
+#hero h4{
+  padding-bottom: 15px;
+}
+#hero h1{
+ color: hotpink; /*rgb(234, 227, 168) tan */
+}
+#hero button{
+  background-image:url("img/button0.png");
+  background-color: transparent;/*make png white background dissapear*/
+  color:black; /*color of text in button*/
+
+  border: 0;
+  padding: 14px 80px 14px 65px; /* top,left,bottom,right */
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+   font-size:15px;
+} 
+
+#feature{
+  /* aligning boxes in a row not column*/
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: black;
+}
+
+#feature .fe-box{
+  /*making box for features*/
+  width: 180px;
+  text-align:center;
+  padding: 25px 15px;
+  
+  background: white;
+
+  /*box shadow implementation*/
+  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03); /* x, y, radius*/ 
+  border: 1px solid;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+#feature .fe-box:hover{
+  /* box hover more intense shadow*/
+  box-shadow: 10px 10px 54px rgba(255, 105, 180, 0.2); /* x, y, radius*/ 
+}
+
+#feature .fe-box img{
+  /*spacing between img and text*/
+  width:100%;
+  margin-bottom:10px;
+}
+
+
+#feature .fe-box h6{
+  display:inline-block;
+  padding: 9px 8px 6px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  color: rgb(255, 248, 186); /*font color features*/
+  background-color: hotpink; /*background color features*/
+}
+
+#feature .fe-box:nth-child(2) h6{ /* different font and bg color for this box*/
+  background-color:rgb(255, 248, 186);
+  color:hotpink
+}
+
+
+#feature .fe-box:nth-child(3) h6{
+  background-color: hotpink; 
+  color: rgb(255, 248, 186);
+}
+
+#product1 { /*align the product text to center*/
+  text-align: center;
+  background: black;
+}
+#product1 .pro-container{
+  /* display all products in container in a row*/
+  display:flex;
+  justify-content: space-between;
+  padding-top: 20px;
+
+  /* break the line and starts new line, so no cursor along the bottom */
+  flex-wrap: wrap;
+}
+
+#product1 .pro{ /*product padding, add cursor when on product, add transition for shadow effect*/
+  width:23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #222;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  margin: 15px 0;
+  transition: 0.5s ease;
+  position: relative; /*parent element position relative*/
+}
+
+#product1 h2{
+  color: white;
+}
+#product1 p{
+  color: white;
+}
+
+#product1 .pro:hover{ /*product hover box shadow*/
+  box-shadow: 10px 10px 30px  rgba(255, 105, 180, 0.2);
+}
+#product1 .pro img{ /*focus the image so that it is inside the box*/
+  width: 100%;
+  border-radius: 20px;
+}
+
+#product1 .pro .des{
+  text-align: start;
+  padding: 10px 0;
+}
+
+#product1 .pro .des span{ /* customize span brand name */
+  color: hotpink;
+  font-size: 12px;
+}
+
+#product1 .pro .des h5{ /* customize h5 text product name*/
+  padding-top: 7px;
+  color: white;
+  font-size: 14px;
+}
+#product1 .pro .des i{ /* customize i tag - stars*/
+  font-size: 12px;
+  color: rgb(243, 181, 25);
+}
+#product1 .pro .des h4{ /* customize h4 tag - product price*/
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  color: hotpink;
+}
+#product1 .pro .cart{ /* customizing the shopping cart logo and background*/
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: rgb(250, 255, 226);
+  color:hotpink;
+  border: 1px solid white;
+
+  position: absolute; /*positon shopping cart in bottom right*/
+  bottom: 20px; /*.pro .cart is child element */
+  right: 10px; /* put postion relative in parent element IE .pro */
+}
+#banner{ /* banner with message */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  /*background-image: url("img/banner/____"); if i want to add image background */
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+#banner h4{
+  color: white;
+  font-size: 16px;
+}
+#banner h2{
+  color:white;
+  font-size: 30px;
+  padding: 10px 0;
+}
+#banner h2 span{
+  color:hotpink
+}
+
+#banner button:hover{/* color change when hovering banner button*/
+  background:hotpink ;
+  color: white;
+}
+
+#newsletter{ 
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  /*background-image: url("img/banner/____"); if i want to add image background*/ 
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: black;
+}
+#newsletter h4{ /*  format and change color of h4 */
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+#newsletter p{ /* format and change color of p */
+  font-size: 14px;
+  font-weight: 600;
+  color: hotpink;
+}
+#newsletter p span{ /* format and change color of words in span */
+  color: rgb(250, 255, 226);
+}
+#newsletter .form{ /*format button input form into a row not column*/
+  display: flex;
+  width: 40%;
+}
+#newsletter input{ /* format input  */
+  height: 3.125rem;
+  padding: 0 1.25rem;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  /* no border radius for input section on the right side*/
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#newsletter button{ /* format color and wrap button */
+  background-color: hotpink;
+  color: white;
+  white-space: nowrap;
+  /* no border radius for button section on the left side*/
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+footer{ /* organize columns into a row*/
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  background: black;
+}
+footer .col{ /* organize links into column*/
+  display:flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+footer .logo{
+  margin-bottom: 30px;
+}
+
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px;
+  color: hotpink;
+}
+
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+footer a{ /* anchor tag formatting */
+  font-size: 13px;
+  text-decoration: none;
+  color: aliceblue;
+  margin-bottom: 10px;
+}
+
+footer .follow{
+  margin-top: 20px;
+}
+
+footer .follow i{ /* color of icons */
+  color:aliceblue;
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+footer .install img{ /* margin spacing from payment image */
+  margin: 1px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover{ /* added hover color effect to anchor tags and icons*/
+  color: hotpink;
+}
+
+footer .copyright{
+  width: 100%;
+  text-align: center ;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width:799px){ /*medium size devices */
+  #navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: black;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.02);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+  }
+
+  #navbar.active{
+    right: 0px;
+  }
+
+  #navbar li{
+    margin-bottom: 25px;
+  }
+
+  #header .mobile a{
+    /*display the shopping bag*/
+    display: flex;
+    align-items: center;
+    /*format font*/
+    text-decoration: none;
+  font-size: 16px;
+  font-weight:600;
+  color:white;
+  }
+  #header .mobile i{
+    /*display the hamburger menu*/
+    display: flex;
+    align-items: center;
+    /*format font*/
+    text-decoration: none;
+    font-size: 16px;
+    font-weight:600;
+    color:white;
+    font-size: 24px;
+    padding-top: 20px;
+  }
+
+  #close{
+    display: initial;/*display the x on smaller and medium devices */
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: hotpink;
+    font-size: 24px;
+  }
+
+  #lg-bag{
+    display:none;
+  }
+ 
+}
+
+
+
+
+
+/* optimize for small screen devices */
+@media (max-width: 477px){
+  .section-p1{
+    padding: 20px;
+  }
+  #header{
+    padding: 10px 30px
+  }
+  h1{
+   font-size: 38px; 
+  }
+  h2{
+    font-size: 32px;
+  }
+  #hero{
+    padding: 0 20px;
+    background-position: 55%;
+  }
+  #feature{
+    justify-content: space-between;
+  }
+  #feature .fe-box{
+    width: 155px;
+    margin: 0 0 15px 0;
+  }
+  #product1 .pro{
+    width: 100%;
+  }
+  #banner{
+    height: 40vh;
+  }
+  #newsletter{
+    padding: 40px 20px;
+  }
+  #newsletter .form{
+    width: 100%;
+  }
+  footer .copyright{
+    text-align: start;
+  }
+}
